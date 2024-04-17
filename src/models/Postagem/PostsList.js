@@ -14,8 +14,8 @@ class PostsList {
     }
 
     addPost(post){
-        this.posts.push(post)
+        this.posts.push(post);
     }
 
-    
+
 }
