@@ -21,5 +21,16 @@ class PostsList {
         this.posts = this.posts.filter((post) => post.id !== id);
     }
 
+    editPost(id, content, image, hashtag){
+        const post = this.getById(id);
 
+        if(post){
+            post.content = content;
+            post.image = image;
+            post.hashtag = hashtag
+        }
+        return post;
+    }
 }
+
+    const postList = new PostsList();
