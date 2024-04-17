@@ -5,12 +5,12 @@ import Title from "../../components/Title";
 import TouchButton from "../../components/TouchButton";
 import { user } from "../../data/Profile";
 
-export default function Category() {
+export default function Form() {
   return (
     <View style={styles.container}>
-      <Title title="Category" />
+      <Title title="Form" />
 
-      <TouchButton route="Category" title="Go to Category" />
+      <TouchButton route="Form" title="Go to Form" />
 
       <TouchButton route="Profile" title="Go to Profile" data={user} />
     </View>

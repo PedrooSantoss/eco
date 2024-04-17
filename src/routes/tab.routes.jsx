@@ -3,7 +3,9 @@ import { Feather } from "@expo/vector-icons";
 
 import Home from "../screens/Home";
 import Profile from "../screens/Profile";
-import Category from "../screens/Category";
+import Form from "../screens/Form";
+import Login from "../screens/Login";
+import Post from "../screens/Post";
 import { user } from "../data/Profile";
 
 const Tab = createBottomTabNavigator();
