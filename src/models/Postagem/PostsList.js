@@ -34,3 +34,7 @@ class PostsList {
 }
 
     const postList = new PostsList();
+    const post = new Post(post.content, post.image, post.hashtag);
+    postList.addPost(post);
+
+    export default postList
