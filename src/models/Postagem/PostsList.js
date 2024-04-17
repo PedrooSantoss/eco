@@ -17,5 +17,9 @@ class PostsList {
         this.posts.push(post);
     }
 
+    removePost(id){
+        this.posts = this.posts.filter((post) => post.id !== id);
+    }
+
 
 }
