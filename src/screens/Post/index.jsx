@@ -13,8 +13,6 @@ export default function Profile({ route }) {
 
       <TouchButton route="Home" title="Go to Home" />
 
-      <TouchButton route="Category" title="Go to Category" />
-
       <View style={styles.user}>
         <Title title="User" />
         <Text style={styles.text}>{data.name}</Text>

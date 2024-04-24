@@ -9,8 +9,6 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <Title title="GREEN SOCIETY" />
-
-      <TouchButton route="Category" title="Go to Category" />
     </View>
   );
 }
