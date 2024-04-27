@@ -62,18 +62,18 @@ const TabRoutes = () => {
           tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
-      <Tab.Screen
+  <Tab.Screen
         name="Post"
         component={Post}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
-              name="eye"
+              name="file-text"
               size={24}
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
-          tabBarLabel: "Posts",
+          tabBarLabel: "Post",
           tabBarActiveTintColor: "#131313",
           tabBarInactiveTintColor: "#D6D6D6",
         }}

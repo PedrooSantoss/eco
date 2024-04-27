@@ -27,7 +27,7 @@ class PostsList {
         if(post){
             post.content = content;
             post.image = image;
-            post.hashtag = hashtag
+            post.hashtag = hashtag;
         }
         return post;
     }

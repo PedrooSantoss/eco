@@ -1,24 +1,29 @@
 import { StyleSheet } from "react-native";
+import { user } from "../../data/Profile";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#fff",
+  },
+  input: {
+    width: "80%",
+    height: 40,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 5,
+    marginBottom: 20,
+    paddingLeft: 10,
   },
   button: {
-    marginTop: 20,
-    padding: 10,
-    backgroundColor: "#C9D4FF",
+    width: "80%",
+    height: 40,
+    backgroundColor: "#007bff",
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 5,
-  },
-  user: {
     marginTop: 20,
-    padding: 10,
-    backgroundColor: "#C9D4FF",
-    borderRadius: 5,
-  },
-  text: {
-    fontSize: 16,
   },
 });
