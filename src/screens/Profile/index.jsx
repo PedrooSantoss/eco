@@ -1,46 +1,53 @@
 import React from "react";
-import { View, Text} from "react-native";
+import { View, Text, ImageBase, Image} from "react-native";
 import styles from "./styles";
-
 import Title from "../../components/Title";
 import TouchButton from "../../components/TouchButton";
 
+
 export default function Profile({ route }) {
   const { data } = route.params;
-  const { name, email, age, address, city, phone } = data;
+  console.log(`dados do objeto`,data);
+  const {image, nickname, email, date, phone, arroba} = data
 
   return (
     <View style={styles.container}>
-      <Title title="Profile" />
+     <View style={styles.header}>
+        <View style={styles.user}>
+          <View style={styles.userInfo}>
+            <Image 
+              style={styles.img}
+              source={{
+                uri: `${image}`
+              }}
+          />
+          </View>
 
-      <View style={styles.userInfo}>
-        <Text style={styles.label}>Name:</Text>
-        <Text style={styles.info}>{name}</Text>
-      </View>
+          <View style={styles.userInfo}>
+            <Text style={styles.name}>{nickname}</Text>
+          </View>
+        </View>
+          <View style={styles.userData}>
+            <View style={styles.coluna}>
+              <View style={styles.userInfo}>
+                <Text style={styles.info}>{email}</Text>
+              </View>
+        
+              <View style={styles.userInfo}>
+                <Text style={styles.info}>{phone}</Text>
+              </View>
+            </View>
+            <View style={styles.coluna}>
+              <View style={styles.userInfo}>
+                <Text style={styles.info}>{date}</Text>
+              </View> 
 
-      <View style={styles.userInfo}>
-        <Text style={styles.label}>Email:</Text>
-        <Text style={styles.info}>{email}</Text>
-      </View>
-
-      <View style={styles.userInfo}>
-        <Text style={styles.label}>Age:</Text>
-        <Text style={styles.info}>{age}</Text>
-      </View>
-
-      <View style={styles.userInfo}>
-        <Text style={styles.label}>Address:</Text>
-        <Text style={styles.info}>{address}</Text>
-      </View>
-
-      <View style={styles.userInfo}>
-        <Text style={styles.label}>City:</Text>
-        <Text style={styles.info}>{city}</Text>
-      </View>
-
-      <View style={styles.userInfo}>
-        <Text style={styles.label}>Phone:</Text>
-        <Text style={styles.info}>{phone}</Text>
+              <View style={styles.userInfo}>
+                <Text style={styles.info}>{arroba}</Text>
+              </View>
+            </View>
+            
+          </View>
       </View>
     </View>
   );
