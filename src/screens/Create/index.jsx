@@ -6,70 +6,39 @@ import Title from "../../components/Title";
 import TouchButton from "../../components/TouchButton";
 
 export default function Create() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [age, setAge] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [phone, setPhone] = useState("");
+  const [Image, setImage] = useState("");
+  const [Hashtag, setHastag] = useState("");
+
 
   const handleSubmit = () => {
     // Aqui você pode enviar os dados para o servidor ou fazer outras operações necessárias
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Age:", age);
-    console.log("Address:", address);
-    console.log("City:", city);
-    console.log("Phone:", phone);
+    console.log("Image:", Image);
+    console.log("Email:", Hashtag);
 
     // Lógica para salvar o usuário
   };
 
   return (
     <View style={styles.container}>
-      <Title title="Create" />
+      <Title title="Create Post" />
 
+      
       <TextInput
         style={styles.input}
-        placeholder="Name"
-        onChangeText={setName}
-        value={name}
+        placeholder="Image"
+        onChangeText={setImage}
+        value={Image}
       />
       <TextInput
         style={styles.input}
-        placeholder="Email"
-        onChangeText={setEmail}
-        value={email}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Age"
-        onChangeText={setAge}
-        value={age}
-        keyboardType="numeric"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Address"
-        onChangeText={setAddress}
-        value={address}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="City"
-        onChangeText={setCity}
-        value={city}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Phone"
-        onChangeText={setPhone}
-        value={phone}
-        keyboardType="phone-pad"
+        placeholder="Hashtag"
+        onChangeText={setHastag}
+        value={Hashtag}
       />
 
+      
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text>Create User</Text>
+        <Text>Post</Text>
       </TouchableOpacity>
 
       <TouchButton route="Profile" title="Go to Profile" />
