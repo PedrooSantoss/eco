@@ -6,17 +6,32 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#fff",
   },
+  header: {
+    width: 400,
+    backgroundColor: "#69B752"
+  },
   user: {
     flex: 1,
     alignItems: "center",
+    marginTop: 50
   },
   userInfo: {
     flexDirection: "row",
     marginBottom: 10,
   },
   img: {
-    width: 50,
-    height: 50
+    width: 85,
+    height: 85,
+    borderRadius: 50
+  },
+  name: {
+    fontSize: 35,
+  },
+  userData: {
+    flexDirection: "row"
+  },
+  coluna: {
+    marginRight: 50
   },
   label: {
     fontWeight: "bold",
