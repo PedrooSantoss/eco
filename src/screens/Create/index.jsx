@@ -1,47 +1,55 @@
-import React, { useState } from "react";
-import { View, TextInput, Text, TouchableOpacity} from "react-native";
-import styles from "./styles";
+import React, { useState } from 'react';
+import { Button, TextInput, View, Text, Image } from 'react-native';
+import styles from './styles';
 
-import Title from "../../components/Title";
-import TouchButton from "../../components/TouchButton";
+const CreatePost = () => {
+  const [content, setContent] = useState('');
+  const [image, setImage] = useState('');
+  const [hashtag, setHashtag] = useState('');
+  const [posts, setPosts] = useState([]);
 
-export default function Create() {
-  const [Image, setImage] = useState("");
-  const [Hashtag, setHastag] = useState("");
-
-
-  const handleSubmit = () => {
-    // Aqui você pode enviar os dados para o servidor ou fazer outras operações necessárias
-    console.log("Image:", Image);
-    console.log("Email:", Hashtag);
-
-    // Lógica para salvar o usuário
+  const handlePost = () => {
+    const newPost = { content, image, hashtag };
+    setPosts(prevPosts => [...prevPosts, newPost]);
+    setContent('');
+    setImage('');
+    setHashtag('');
+    console.log('Post criado:', newPost);
+    console.log('Todos os posts:', posts);
   };
 
   return (
     <View style={styles.container}>
-      <Title title="Create Post" />
-
-      
       <TextInput
         style={styles.input}
-        placeholder="Image"
+        placeholder="Conteúdo"
+        value={content}
+        onChangeText={setContent}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Imagem"
+        value={image}
         onChangeText={setImage}
-        value={Image}
       />
       <TextInput
         style={styles.input}
         placeholder="Hashtag"
-        onChangeText={setHastag}
-        value={Hashtag}
+        value={hashtag}
+        onChangeText={setHashtag}
       />
+      <Button title="Postar" onPress={handlePost} />
 
-      
-      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text>Post</Text>
-      </TouchableOpacity>
-
-      <TouchButton route="Profile" title="Go to Profile" />
+      {/* Renderizar os posts */}
+      {posts.map((post, index) => (
+        <View key={index}>
+          <Text>{post.content}</Text>
+          <Image source={{ uri: post.image }} style={{width: 50, height: 50}} />
+          <Text>{post.hashtag}</Text>
+        </View>
+      ))}
     </View>
   );
-}
+};
+
+export default CreatePost;
