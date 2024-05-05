@@ -4,10 +4,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: "#F5F5DC",
   },
   header: {
-    width: 400,
+    width: "100%",
     backgroundColor: "#69B752"
   },
   user: {
@@ -31,7 +31,10 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   coluna: {
-    marginRight: 50
+    marginRight: 100
+  },
+  coluna2: {
+    marginLeft: 50
   },
   label: {
     fontWeight: "bold",

@@ -37,7 +37,7 @@ export default function Profile({ route }) {
                 <Text style={styles.info}>{phone}</Text>
               </View>
             </View>
-            <View style={styles.coluna}>
+            <View style={styles.coluna2}>
               <View style={styles.userInfo}>
                 <Text style={styles.info}>{date}</Text>
               </View> 
