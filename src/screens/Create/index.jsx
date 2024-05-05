@@ -1,78 +1,55 @@
-import React, { useState } from "react";
-import { View, TextInput, Text, TouchableOpacity} from "react-native";
-import styles from "./styles";
+import React, { useState } from 'react';
+import { Button, TextInput, View, Text, Image } from 'react-native';
+import styles from './styles';
 
-import Title from "../../components/Title";
-import TouchButton from "../../components/TouchButton";
+const CreatePost = () => {
+  const [content, setContent] = useState('');
+  const [image, setImage] = useState('');
+  const [hashtag, setHashtag] = useState('');
+  const [posts, setPosts] = useState([]);
 
-export default function Create() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [age, setAge] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [phone, setPhone] = useState("");
-
-  const handleSubmit = () => {
-    // Aqui você pode enviar os dados para o servidor ou fazer outras operações necessárias
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Age:", age);
-    console.log("Address:", address);
-    console.log("City:", city);
-    console.log("Phone:", phone);
-
-    // Lógica para salvar o usuário
+  const handlePost = () => {
+    const newPost = { content, image, hashtag };
+    setPosts(prevPosts => [...prevPosts, newPost]);
+    setContent('');
+    setImage('');
+    setHashtag('');
+    console.log('Post criado:', newPost);
+    console.log('Todos os posts:', posts);
   };
 
   return (
     <View style={styles.container}>
-      <Title title="Create" />
+      <TextInput
+        style={styles.input}
+        placeholder="Conteúdo"
+        value={content}
+        onChangeText={setContent}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Imagem"
+        value={image}
+        onChangeText={setImage}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Hashtag"
+        value={hashtag}
+        onChangeText={setHashtag}
+      />
+      <Button title="Postar" onPress={handlePost} />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Name"
-        onChangeText={setName}
-        value={name}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        onChangeText={setEmail}
-        value={email}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Age"
-        onChangeText={setAge}
-        value={age}
-        keyboardType="numeric"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Address"
-        onChangeText={setAddress}
-        value={address}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="City"
-        onChangeText={setCity}
-        value={city}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Phone"
-        onChangeText={setPhone}
-        value={phone}
-        keyboardType="phone-pad"
-      />
-
-      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text>Create User</Text>
-      </TouchableOpacity>
-
-      <TouchButton route="Profile" title="Go to Profile" />
+      {/* Renderizar os posts */}
+      {posts.map((post, index) => (
+        <View key={index}>
+          <Text>{post.content}</Text>
+          <Image source={{ uri: post.image }} style={{width: 50, height: 50}} />
+          <Text>{post.hashtag}</Text>
+        </View>
+      ))}
     </View>
   );
-}
+};
+
+export default CreatePost;
