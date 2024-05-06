@@ -7,7 +7,7 @@ import TouchButton from "../../components/TouchButton";
 
 export default function Profile({ route }) {
   const { data } = route.params;
-  console.log(`dados do objeto`,data);
+  //console.log(`dados do objeto`,data);
   const {image, nickname, email, date, phone, arroba} = data
 
   return (
