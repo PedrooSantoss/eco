@@ -1,4 +1,5 @@
-import uuid4 from "uuid4"
+import uuid from 'react-native-uuid';
+uuid.v4();
 export default class Post{
     constructor(content, image, hashtag){
         this.id = this.gerarID()
@@ -8,6 +9,6 @@ export default class Post{
     }
 
     gerarID(){
-        return uuid4;
+        return uuid;
     }
 }
