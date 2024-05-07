@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Button, TextInput, View, Text, Image } from 'react-native';
+
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from './styles';
 import postList from '../../models/Postagem/PostsList';
 import Post from '../../models/Postagem/Post';
@@ -38,42 +39,42 @@ export default function Create ({route}) {
     setHashtag("");
   }
 
-
-
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Conteúdo"
-        value={content}
-        onChangeText={setContent}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Imagem"
-        value={image}
-        onChangeText={setImage}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Hashtag"
-        value={hashtag}
-        onChangeText={setHashtag}
-      />
-      <Button title="Postar" onPress={handlePostAction} />
-      {showConfirmation && (
-        <Text style={styles.confirmationText}>Post enviado com sucesso!</Text>
-      )}
-
-      {/* Renderizar os posts */}
-      {/*{posts.map((post, index) => (
-        <View key={index}>
-          <Text>{post.content}</Text>
-          <Image source={{ uri: post.image }} style={{width: 50, height: 50}} />
-          <Text>{post.hashtag}</Text>
-        </View>
-      ))}*/}
-    </View>
+  <Image
+    style={styles.image}
+    source={require('../../../assets/egs.png')}
+  />
+  <Text style={styles.title}>Create Post:</Text>
+  <View style={styles.subContainer}>
+    <Text style={styles.label}>Content:</Text>
+    <TextInput
+      style={styles.largeInput}
+      placeholder="Type..."
+      value={content}
+      onChangeText={text => setContent(text)}
+    />
+    <Text style={styles.label}>Image:</Text>
+    <TextInput
+      style={styles.input}
+      placeholder="Image URL:"
+      value={image}
+      onChangeText={text => setImage(text)}
+    />
+    <Text style={styles.label}>Hashtag:</Text>
+    <TextInput
+      style={styles.input}
+      placeholder="Hashtag"
+      value={hashtag}
+      onChangeText={text => setHashtag(text)}
+    />
+    <TouchableOpacity
+      style={styles.button}
+      onPress={handlePost}
+    >
+      <Text style={styles.buttonText}>Post</Text>
+    </TouchableOpacity>
+  </View>
+</View>
   );
-;
 }
