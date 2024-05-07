@@ -12,6 +12,8 @@ export default function Create ({route}) {
   const [image, setImage] = useState("");
   const [hashtag, setHashtag] = useState("");
 
+  const [sendConfirmation, setSendConfirmation] = useState(false);
+
   const navigation = useNavigation;
 
   
@@ -21,12 +23,16 @@ export default function Create ({route}) {
       const newPost = new Post(content, image, hashtag);
       postList.addPost(newPost);
       clearInputs();
-   
-    navigation.navigate("Post");
+      setShowConfirmation(true);
+
+  setTimeout(() => {
+    setShowConfirmation(false);
+  }, 3000);
+
+      navigation.navigate('ProximaTela', { post: newPost });
   }
 
   const clearInputs = () => {
-    setIsUpdate(false);
     setContent("");
     setImage("");
     setHashtag("");
@@ -55,6 +61,9 @@ export default function Create ({route}) {
         onChangeText={setHashtag}
       />
       <Button title="Postar" onPress={handlePostAction} />
+      {showConfirmation && (
+        <Text style={styles.confirmationText}>Post enviado com sucesso!</Text>
+      )}
 
       {/* Renderizar os posts */}
       {/*{posts.map((post, index) => (
