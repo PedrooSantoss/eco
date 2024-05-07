@@ -1,23 +1,43 @@
+
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from './styles';
+import postList from '../../models/Postagem/PostsList';
+import Post from '../../models/Postagem/Post';
+import { useNavigation } from '@react-navigation/native';
 
+export default function Create ({route}) {
+  let {post} = route.params;
 
-const CreatePost = () => {
-  const [content, setContent] = useState('');
-  const [image, setImage] = useState('');
-  const [hashtag, setHashtag] = useState('');
-  const [posts, setPosts] = useState([]);
+  const [content, setContent] = useState("");
+  const [image, setImage] = useState("");
+  const [hashtag, setHashtag] = useState("");
 
-  const handlePost = () => {
-    const newPost = { content, image, hashtag };
-    setPosts(prevPosts => [...prevPosts, newPost]);
-    setContent('');
-    setImage('');
-    setHashtag('');
-    console.log('Post criado:', newPost);
-    console.log('Todos os posts:', posts);
-  };
+  const [sendConfirmation, setSendConfirmation] = useState(false);
+
+  const navigation = useNavigation;
+
+  
+
+  const handlePostAction = () => {
+    
+      const newPost = new Post(content, image, hashtag);
+      postList.addPost(newPost);
+      clearInputs();
+      setShowConfirmation(true);
+
+  setTimeout(() => {
+    setShowConfirmation(false);
+  }, 3000);
+
+      navigation.navigate('ProximaTela', { post: newPost });
+  }
+
+  const clearInputs = () => {
+    setContent("");
+    setImage("");
+    setHashtag("");
+  }
 
   return (
     <View style={styles.container}>
@@ -58,5 +78,3 @@ const CreatePost = () => {
 </View>
   );
 }
-
-export default CreatePost;

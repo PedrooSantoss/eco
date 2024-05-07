@@ -7,7 +7,9 @@ import Form from "../screens/Form";
 import Post from "../screens/Post";
 import Create from "../screens/Create";
 import { user } from "../data/Profile";
+import postList from "../models/Postagem/PostsList";
 
+const posts = postList.getAll()
 const Tab = createBottomTabNavigator();
 
 const TabRoutes = () => {
@@ -81,6 +83,7 @@ const TabRoutes = () => {
       <Tab.Screen
         name="Create"
         component={Create}
+        initialParams={{post: null}}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather

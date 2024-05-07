@@ -1,4 +1,3 @@
-import uuid4 from "uuid4"
 export default class Post{
     constructor(content, image, hashtag){
         this.id = this.gerarID()
@@ -8,6 +7,6 @@ export default class Post{
     }
 
     gerarID(){
-        return uuid4;
+        return Math.floor(Math.random() * 1000);
     }
 }
