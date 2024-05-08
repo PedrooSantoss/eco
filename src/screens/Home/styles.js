@@ -6,11 +6,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  button: {
-    marginTop: 20,
-    padding: 10,
-    backgroundColor: "#C9D4FF",
-    borderRadius: 5,
+  stretch: {
+    width: 100,
+    height: 100,
+    resizeMode: "stretch",
+  },
+  tinyLogo: {
+    width: 50,
+    height: 50,
   },
 });
 
