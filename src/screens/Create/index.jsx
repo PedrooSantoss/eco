@@ -43,7 +43,7 @@ export default function Create ({route}) {
     <View style={styles.container}>
   <Image
     style={styles.image}
-    source={require('../../../assets/egs.png')}
+    source={require('../../../assets/logo.png')}
   />
   <Text style={styles.title}>Create Post:</Text>
   <View style={styles.subContainer}>
