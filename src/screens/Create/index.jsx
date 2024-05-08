@@ -70,7 +70,7 @@ export default function Create ({route}) {
     />
     <TouchableOpacity
       style={styles.button}
-      onPress={handlePost}
+      onPress={handlePostAction}
     >
       <Text style={styles.buttonText}>Post</Text>
     </TouchableOpacity>
