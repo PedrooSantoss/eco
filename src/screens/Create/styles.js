@@ -78,4 +78,9 @@ export default StyleSheet.create({
     marginBottom: 5,
     marginLeft: 20, 
   },
+  confirmationText: {
+    color: 'green',
+    textAlign: 'center',
+    marginTop: 10,
+  }
 });

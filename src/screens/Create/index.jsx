@@ -24,10 +24,10 @@ export default function Create ({route}) {
       const newPost = new Post(content, image, hashtag);
       postList.addPost(newPost);
       clearInputs();
-      setShowConfirmation(true);
+      setSendConfirmation(true);
 
   setTimeout(() => {
-    setShowConfirmation(false);
+    setSendConfirmation(false);
   }, 3000);
 
       navigation.navigate('ProximaTela', { post: newPost });
@@ -74,6 +74,9 @@ export default function Create ({route}) {
     >
       <Text style={styles.buttonText}>Post</Text>
     </TouchableOpacity>
+    {sendConfirmation && (
+      <Text style={styles.confirmationText}>Postado com sucesso</Text>
+    )}
   </View>
 </View>
   );
